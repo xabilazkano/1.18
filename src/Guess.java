@@ -8,7 +8,7 @@ public class Guess {
 		Random ran = new Random();
 		int flag=0;
 		int tries=0;
-		int number = ran.nextInt(200-1)+1;
+		int number = ran.nextInt(200)+1;
 		String num = String.valueOf(number);
 		System.out.println("I will think a number between 1 and 200, try to guess it in less than 10 tries.");
 		
