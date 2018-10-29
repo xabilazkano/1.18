@@ -6,29 +6,29 @@ public class Guess {
 		
 		Scanner sc = new Scanner (System.in);
 		Random ran = new Random();
-		int flag=0;
+		boolean flag=true;
 		int tries=0;
-		int number = ran.nextInt(200)+1;
+		int number = ran.nextInt(200)+1; //the method we create a number between 0 and 199. By summing 1 we change the range to 1-200.
 		String num = String.valueOf(number);
 		System.out.println("I will think a number between 1 and 200, try to guess it in less than 10 tries.");
 		
-		while (flag==0) {
+		while (flag) { 
 			System.out.println("Tell me a number");
-			if (sc.hasNextInt()) {
+			if (sc.hasNextInt()) { //we control that we enter a number
 				int number2=sc.nextInt();
-				if (number2>=1 && number2<=200) {
+				if (number2>=1 && number2<=200) { //we control if the number is in our range
 					if (number<number2) {
 						System.out.println("My number is smaller");
-						tries++;
+						tries++;//we control the tries
 					}
 					else if (number>number2) {
 						System.out.println("My number is bigger");
-						tries++;
+						tries++;//we control the tries
 					}
 					else {
-						tries++;
+						tries++;//we control the tries
 						System.out.println("You guessed it in " + tries + " tries.");
-						flag++;
+						flag=false;//we finish the game
 					}
 				}
 				else {
@@ -39,7 +39,7 @@ public class Guess {
 				System.out.println("You haven't entered a number");
 				sc.next();
 			}
-			switch(tries) {
+			switch(tries) { //we use a switch to give hints for specific number of tries
 				
 				
 				case 3:
@@ -93,7 +93,7 @@ public class Guess {
 				case 10:
 					System.out.println("Game Over");
 					System.out.println("My number was "+ number);
-					flag++;
+					flag=false; //if we have done 10 tries we finish the game 
 			}
 		}
 	}
